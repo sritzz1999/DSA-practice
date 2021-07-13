@@ -1,0 +1,41 @@
+class Solution {
+    public int[] sortedSquares(int[] nums) {
+        int n = nums.length;
+        int[] arr = new int[n];
+        int pos = 0;
+        int count = 0;
+        while(pos < n && nums[pos] < 0)
+        {
+            pos++;
+        }
+        int neg = pos-1;
+        while(neg >= 0 && pos < n)
+        {
+            if(nums[neg] * nums[neg] < nums[pos] * nums[pos])
+            {
+                arr[count] = nums[neg] * nums[neg];
+                neg--;
+                count++;
+            }
+            else
+            {
+                arr[count] = nums[pos] * nums[pos];
+                pos++;
+                count++;
+            }    
+        }
+        while(neg >= 0)
+        {
+            arr[count] = nums[neg] * nums[neg];
+            neg--;
+            count++;
+        }
+        while(pos < n)
+        {
+            arr[count] = nums[pos] * nums[pos];
+            pos++;
+            count++;
+        }
+        return arr;
+    }
+}

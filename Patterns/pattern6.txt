@@ -1,0 +1,30 @@
+package practiceQuestions;
+
+import java.util.Scanner;
+
+public class Pattern6 {
+	public static void main(String[] args) 
+	{
+		Scanner s = new Scanner(System.in);
+		int n = s.nextInt();
+		int no = 1;
+		
+		for(int i = 1; i <= n; i++)
+		{
+			for(int k = 1; k <= i; k++)
+			{
+				System.out.print("* ");
+			}
+			System.out.println();
+		}
+		for(int i = 1; i < n; i++)
+		{
+			for(int k = 1; k <= n-i; k++)
+			{
+				System.out.print("* ");
+			}
+			System.out.println();
+		}
+
+	}
+}

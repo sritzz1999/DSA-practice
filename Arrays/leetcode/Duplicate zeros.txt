@@ -1,0 +1,34 @@
+class Solution {
+    public void duplicateZeros(int[] arr) {
+        int duplicate = 0;
+        int n = arr.length - 1;
+        for (int i = 0; i <= n - duplicate; i++) 
+        {
+            if (arr[i] == 0) 
+            { 
+                if (i == n - duplicate) 
+                {
+                   
+                    arr[n] = 0;
+                    n -= 1;
+                    break;
+                }
+                duplicate++;
+            }
+        }
+
+        int last = n - duplicate;
+        for (int i = last; i >= 0; i--) 
+        {
+            if (arr[i] == 0) 
+            {
+                arr[i + duplicate] = 0;
+                duplicate--;
+                arr[i + duplicate] = 0;
+            } else 
+            {
+                arr[i + duplicate] = arr[i];
+            }
+        }
+    }
+}
